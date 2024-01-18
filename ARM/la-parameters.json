@@ -6,7 +6,7 @@
             "value": "westus2"
         },
         "environmentName": {
-            "value": "env-name"
+            "value": "dev"
         },
         "projectName": {
             "value": "project-name"
@@ -15,10 +15,10 @@
             "value": "la-githubdeploy-03"
         },
         "appServicePlanName": {
-            "value": "asp-name"
+            "value": "asp-appserviceplannacer"
         },
         "storageName": {
-            "value": "storage-name"
+            "value": "sanacerforgithub"
         },
         "kind": {
             "value": "StorageV2"

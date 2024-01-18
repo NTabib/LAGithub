@@ -4,7 +4,7 @@
 name: (classic) Build and Deploy Logic App. 
 
 env:
-  LA_NAME: 'la-githubdeploy-01'
+  LA_NAME: 'la-githubdeploy-03'
 
 on:
   workflow_dispatch:
