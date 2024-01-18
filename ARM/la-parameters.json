@@ -12,7 +12,7 @@
             "value": "project-name"
         },
         "logicAppName": {
-            "value": "la-githubdeploy-01"
+            "value": "la-githubdeploy-03"
         },
         "appServicePlanName": {
             "value": "asp-name"
