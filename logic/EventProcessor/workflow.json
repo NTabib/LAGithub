@@ -19,7 +19,7 @@
                 "inputs": {
                     "host": {
                         "connection": {
-                            "referenceName": "azureblob"
+                            "referenceName": "{$var1}"
                         }
                     },
                     "method": "post",
