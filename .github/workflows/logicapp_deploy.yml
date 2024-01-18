@@ -32,7 +32,7 @@ jobs:
       run: |
         pwd;
         find . -name "workflow.json" -exec sh -c 'tmpdir="github-sample/$(dirname "{}")-${{github.ref_name}}";
-        mkdir -p "$tmpdir" && envsubst < "{}" > "$tmpdir/$(basename"{}")"' \; && rm -rf logicworkflow/logicworkflow
+        mkdir -p "$tmpdir" && envsubst < "{}" > "$tmpdir/$(basename "{}")"' \; && rm -rf logicworkflow/logicworkflow
         ls -R logicworkflow
 
     - name: Package logic
