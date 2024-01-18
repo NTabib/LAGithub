@@ -34,7 +34,7 @@ jobs:
         find . -name "workflow.json" -exec sh -c 'tmpdir="logicworkflow/$(dirname "{}")-${{github.ref_name}}";
         mkdir -p "$tmpdir" && envsubst < "{}" > "$tmpdir/$(basename "{}")"' \; && rm -rf logicworkflow/logicworkflow
         ls -R logicworkflow
-        cat logicworkflow/*.json
+        cat logicworkflow/logic/EventProcessor-mai/*.json
 
     - name: Package logic
       run: (cd logic; mkdir -p ../output; zip -r ../output/logic.zip .)
