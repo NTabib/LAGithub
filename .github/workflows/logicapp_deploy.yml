@@ -50,7 +50,7 @@ jobs:
       with:
         creds: ${{secrets.AZURE_CREDENTIALS}}
         enable-AzPSSession: true 
-    - uses: actions/download-artifact@master
+    - uses: actions/download-artifact@main
       with:
         name: logic
         path: ./output/
