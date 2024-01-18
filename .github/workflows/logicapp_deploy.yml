@@ -34,7 +34,7 @@ jobs:
       with:
         name: logic
         path: ./output/
-        retention-days: 1 
+        retention-days: 10 
 
   logic_app_deploy: 
     name: Deploy 
