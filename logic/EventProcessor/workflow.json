@@ -19,7 +19,7 @@
                 "inputs": {
                     "host": {
                         "connection": {
-                            "referenceName": "${{ env.ACTIONNAME}}"
+                            "referenceName": "{$var1}"
                         }
                     },
                     "method": "post",
