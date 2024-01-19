@@ -32,7 +32,7 @@ jobs:
       run: |
         export var1=tabib;
         find . -name "workflow.json" -exec sh -c 'tmpdir="logicworkflow/$(dirname "{}")-${{github.ref_name}}";
-        mkdir -p "$tmpdir" && envsubst < "" > "$tmpdir/$(basename "{}")"' \; && rm -rf logicworkflow/logicworkflow
+        mkdir -p "$tmpdir" && envsubst < "{}" > "$tmpdir/$(basename "{}")"' \;
         ls -R logicworkflow
         cat logicworkflow/logic/EventProcessor-main/*.json
 
