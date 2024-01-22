@@ -70,6 +70,10 @@ jobs:
       with:
         name: logic
         path: ./output/
+
+    - name: Package logic
+      run: (cd logic/output;ls logic/output; unzip  ./output/logic.zip .)
+
     - uses: microsoft/variable-substitution@v1 
       with:
         files: './output/*.json'
@@ -89,9 +93,6 @@ jobs:
           $profile = $profile.Replace("`r", "").Replace("`n", "")
           Write-Output "::set-output name=profile::$profile"
         azPSVersion: latest
-
-    - name: Package logic
-      run: (cd logic/output;ls logic/output; unzip  ./output/logic.zip .)
 
     - name: Deploy to Azure Logic App
       uses: Azure/functions-action@v1.3.1
