@@ -90,6 +90,9 @@ jobs:
           Write-Output "::set-output name=profile::$profile"
         azPSVersion: latest
 
+    - name: Package logic
+      run: (cd logic/output;ls logic/output; unzip  ./output/logic.zip .)
+
     - name: Deploy to Azure Logic App
       uses: Azure/functions-action@v1.3.1
       id: la
