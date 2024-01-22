@@ -28,6 +28,7 @@ jobs:
 
     - name: Checkout
       uses: actions/checkout@v1
+    
 
     - name: substitue environment variables 
       run: |
@@ -57,6 +58,9 @@ jobs:
     steps: 
     - name: Checkout
       uses: actions/checkout@v1    
+
+
+
     - name: Login via Az module
       uses: azure/login@v1
       with:
@@ -66,7 +70,14 @@ jobs:
       with:
         name: logic
         path: ./output/
-        
+    - uses: microsoft/variable-substitution@v1 
+      with:
+        files: 'Application/*.json, Application/*.yaml, ./Application/SampleWebApplication/We*.config'
+      env:
+        Var1: "value1"
+        Var2.key1: "value2"
+        SECRET: ${{ secrets.SOME_SECRET }}  
+                
     - name: Get publish Profile
       id: publishprofile
       uses: azure/powershell@v1
