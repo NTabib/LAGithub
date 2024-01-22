@@ -79,8 +79,6 @@ jobs:
         files: './output/*.json'
       env:
         Var1: "value1"
-        Var2.key1: "value2"
-        SECRET: ${{ secrets.SOME_SECRET }}  
 
     - name: Get publish Profile
       id: publishprofile
