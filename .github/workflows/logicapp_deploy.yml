@@ -72,7 +72,7 @@ jobs:
         path: ./output/
 
     - name: unzip files
-      run: (ls .; cd ./output; unzip  logic.zip )
+      run: (ls .; cd ./output; unzip  logic.zip;ls -R .)
 
     - uses: microsoft/variable-substitution@v1 
       with:
