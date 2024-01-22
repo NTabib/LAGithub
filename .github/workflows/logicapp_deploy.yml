@@ -71,8 +71,8 @@ jobs:
         name: logic
         path: ./output/
 
-    - name: Package logic
-      run: (cd logic/output;ls logic/output; unzip  ./output/logic.zip .)
+    - name: unzip files
+      run: (ls .; cd ./logic/output;ls logic/output; unzip  ./output/logic.zip .)
 
     - uses: microsoft/variable-substitution@v1 
       with:
