@@ -1,14 +1,26 @@
 {
   "managedApiConnections": {
-    "azureblob": {
-      "api": {
-        "id": "/subscriptions/@appsetting('WORKFLOWS_SUBSCRIPTION_ID')/providers/Microsoft.Web/locations/@appsetting('WORKFLOWS_LOCATION_NAME')/managedApis/azureblob"
-      },
-      "connection": {
-        "id": "/subscriptions/@appsetting('WORKFLOWS_SUBSCRIPTION_ID')/resourceGroups/@appsetting('WORKFLOWS_RESOURCE_GROUP_NAME')/providers/Microsoft.Web/connections/azureblob"
-      },
-      "connectionRuntimeUrl": "@appsetting('BLOB_CONNECTION_RUNTIMEURL')",
-      "authentication": "@parameters('blob_auth')"
-    }
+      "azureblob": {
+          "api": {
+              "id": "/subscriptions/@appsetting('WORKFLOWS_SUBSCRIPTION_ID')/providers/Microsoft.Web/locations/@appsetting('WORKFLOWS_LOCATION_NAME')/managedApis/azureblob"
+          },
+          "authentication": "@parameters('blob_auth')",
+          "connection": {
+              "id": "/subscriptions/@appsetting('WORKFLOWS_SUBSCRIPTION_ID')/resourceGroups/@appsetting('WORKFLOWS_RESOURCE_GROUP_NAME')/providers/Microsoft.Web/connections/azureblob"
+          },
+          "connectionRuntimeUrl": "@appsetting('BLOB_CONNECTION_RUNTIMEURL')"
+      }
+  },
+  "serviceProviderConnections": {
+      "azureTables": {
+          "displayName": "table-connection",
+          "parameterSetName": "connectionString",
+          "parameterValues": {
+              "connectionString": "@appsetting('azureTables_connectionString')"
+          },
+          "serviceProvider": {
+              "id": "/serviceProviders/azureTables"
+          }
+      }
   }
 }

@@ -52,12 +52,11 @@ jobs:
     #     parameters: ARM/connectors-parameters.json logicAppSystemAssignedIdentityTenantId=${{ steps.ladeploy.outputs.logicAppSystemAssignedIdentityTenantId }} logicAppSystemAssignedIdentityObjectId=${{ steps.ladeploy.outputs.logicAppSystemAssignedIdentityObjectId }}
     #     deploymentMode: Incremental
 
-    # - name: Update Logic App Connections 
-    #   uses: azure/CLI@v1
-    #   with:
-    #     inlineScript: |
-    #       az functionapp config appsettings set --name ${{ steps.ladeploy.outputs.LAname }} --resource-group  ${{ secrets.RG_LA }} --settings "BLOB_CONNECTION_RUNTIMEURL=${{ steps.msdemoconn.outputs.blobendpointurl }}"
-    #       az functionapp config appsettings set --name ${{ steps.ladeploy.outputs.LAname }} --resource-group  ${{ secrets.RG_LA }} --settings "WORKFLOWS_RESOURCE_GROUP_NAME=${{ secrets.RG_CON }}"
+    - name: Update Logic App Connections 
+      uses: azure/CLI@v1
+      with:
+        inlineScript: |
+          az functionapp config appsettings set --name ${{ steps.ladeploy.outputs.LAname }} --resource-group  ${{ secrets.RG_LA }} --settings "azureTables_connectionString=DefaultEndpointsProtocol=https;AccountName=sanacerforgithub;AccountKey=8r2BQ+h8Mtf2LgHHBSrWPW53vuWFyZg2pNDUBsFS/fOCPzYLtfTMYLGRHIvwE+8Zqo7ZQJE0fWa1+ASt1D56Pw==;EndpointSuffix=core.windows.net"
 
   
   # Here is a sample second environment - all you'll need to do is create a new environment in your repositories Settings for RG_LA and RG_CON and you're good to go!
