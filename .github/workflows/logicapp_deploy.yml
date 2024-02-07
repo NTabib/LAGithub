@@ -91,7 +91,7 @@ jobs:
         cat logicworkflow/logic/EventProcessor-main/*.json
 
     - name: Package logic
-      run: (cd logic; mkdir -p ../output; zip -r ../output/logic.zip .;zip -r ../output/logic.zip logicworkflow/logic)
+      run: (cd logic;ls -R .; mkdir -p ../output; zip -r ../output/logic.zip .;zip -r ../output/logic.zip logicworkflow/logic)
 
     - name: Get publish Profile
       id: publishprofile
