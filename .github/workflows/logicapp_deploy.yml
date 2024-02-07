@@ -24,6 +24,8 @@ on:
 jobs:
   logic_app_build: 
     name: Build 
+    environment: 
+      name: Dev
     runs-on: ubuntu-latest
     steps: 
 
