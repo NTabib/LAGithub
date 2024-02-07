@@ -110,7 +110,7 @@ jobs:
       id: la
       with:
         app-name: ${{secrets.RG_LA}}
-        package: './output/logic.zip'
+        package: '../logicworkflow/logic/logic.zip'
         publish-profile: ${{steps.publishprofile.outputs.profile}}
 
     - name: Swap parameter files 
