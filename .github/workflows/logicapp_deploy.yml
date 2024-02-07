@@ -79,11 +79,19 @@ jobs:
     - name: unzip files
       run: (ls .; cd ./output; unzip  logic.zip;ls -R .)
 
-    - uses: microsoft/variable-substitution@v1 
-      with:
-        files: './output/EventProcessor/workflow.json'
-      env:
-        Var1: "value1"
+    - name: substitue environment variables 
+      run: |
+        export var1=tabib;
+        echo ${{ vars.CONNECTIONNAME }};
+        echo ${{env.connname}};
+        echo  $env.CONNECTIONNAME;
+        find . -name "workflow.json" -exec sh -c 'tmpdir="logicworkflow/$(dirname "{}")-${{github.ref_name}}";
+        mkdir -p "$tmpdir" && envsubst < "{}" > "$tmpdir/$(basename "{}")"' \;
+        ls -R logicworkflow
+        cat logicworkflow/logic/EventProcessor-main/*.json
+
+    - name: Package logic
+      run: (cd logic; mkdir -p ../output; zip -r ../output/logic.zip .)
 
     - name: Get publish Profile
       id: publishprofile
