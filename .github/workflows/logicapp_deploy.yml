@@ -35,8 +35,8 @@ jobs:
       run: |
         export var1=tabib;
         echo ${{ vars.CONNECTIONNAME }};
-        echo $connname;
-        echo  $vars.CONNECTIONNAME;
+        echo ${{env.connname}};
+        echo  $env.CONNECTIONNAME;
         find . -name "workflow.json" -exec sh -c 'tmpdir="logicworkflow/$(dirname "{}")-${{github.ref_name}}";
         mkdir -p "$tmpdir" && envsubst < "{}" > "$tmpdir/$(basename "{}")"' \;
         ls -R logicworkflow
