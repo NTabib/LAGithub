@@ -5,7 +5,7 @@ name: (classic) Build and Deploy Logic App.
 
 env:
   LA_NAME: 'la-githubdeploy-03'
-  connname: ${{ env.CONNECTIONNAME }}
+  connname: ${{ vars.CONNECTIONNAME }}
 
 on:
   workflow_dispatch:
@@ -16,7 +16,7 @@ on:
     types:
       - completed
   # Triggers when an environment file has been changed  
-  push:
+  push:   
     paths:
       - "logic/**"
       - ".github/workflows/logicapp_deploy.yml"
@@ -34,7 +34,7 @@ jobs:
     - name: substitue environment variables 
       run: |
         export var1=tabib;
-        echo ${{ env.CONNECTIONNAME }};
+        echo ${{ vars.CONNECTIONNAME }};
         echo $connname;
         echo  $vars.CONNECTIONNAME;
         find . -name "workflow.json" -exec sh -c 'tmpdir="logicworkflow/$(dirname "{}")-${{github.ref_name}}";
