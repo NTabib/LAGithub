@@ -35,7 +35,6 @@ jobs:
 
     - name: substitue environment variables 
       run: |
-        export var1=tabib;
         echo ${{ vars.CONNECTIONNAME }};
         echo ${{env.connname}};
         echo  $env.CONNECTIONNAME;
