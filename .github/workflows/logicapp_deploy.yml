@@ -5,6 +5,7 @@ name: (classic) Build and Deploy Logic App.
 
 env:
   LA_NAME: 'la-githubdeploy-03'
+  connname: ${{ env.CONNECTIONNAME }}
 
 on:
   workflow_dispatch:
@@ -34,7 +35,7 @@ jobs:
       run: |
         export var1=tabib;
         echo ${{ env.CONNECTIONNAME }};
-        echo "${{ vars.CONNECTIONNAME }}";
+        echo $connname;
         echo  $vars.CONNECTIONNAME;
         find . -name "workflow.json" -exec sh -c 'tmpdir="logicworkflow/$(dirname "{}")-${{github.ref_name}}";
         mkdir -p "$tmpdir" && envsubst < "{}" > "$tmpdir/$(basename "{}")"' \;
