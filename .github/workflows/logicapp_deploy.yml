@@ -5,6 +5,7 @@ name: (classic) Build and Deploy Logic App.
 
 env:
   LA_NAME: 'la-githubdeploy-03'
+  connname: ${{ secrets.CONNECTIONNAME }}
 
 
 on:
@@ -26,8 +27,6 @@ jobs:
     name: Build 
     environment: 
       name: Dev
-    env:
-      connname: ${{ secrets.CONNECTIONNAME }}
     runs-on: ubuntu-latest
     steps: 
 
